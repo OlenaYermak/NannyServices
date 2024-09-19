@@ -1,0 +1,15 @@
+.imageWrapper{
+border: 2px solid #F03F3B33;
+border-radius: 30px;
+
+}
+
+.image {
+    border-radius: 15px;
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    object-position: center;
+    margin: 12px;
+    
+}
