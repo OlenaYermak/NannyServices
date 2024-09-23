@@ -1,0 +1,20 @@
+.nannyDetailsList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 979px;
+  gap: 8px;
+}
+
+.nannyDetailsListItem {
+  background-color: var(--back-ground);
+  border-radius: 24px;
+  padding: 8px 16px;
+}
+
+.label {
+  color: var(--gray);
+}
+
+.valueAge {
+  text-decoration: underline;
+}

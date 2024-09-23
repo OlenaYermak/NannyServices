@@ -1,18 +1,15 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --gray: #8a8a89;
+  --black: #11101c;
+  --yellow: #ffc531;
+  --green: #38cd3e;
+  --back-ground: #f3f3f3;
+  --red: #f03f3b;
+  --white: #fbfbfb;
 }
-
+p {
+  margin: 0;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -23,11 +20,24 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  font-family: 'HelveticaNeueCyr', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--black);
+  /* margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
+}
+
+li,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-type: none;
 }
 
 h1 {
@@ -65,4 +75,167 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Condensed Bold'),
+    local('HelveticaNeueBoldCondensed'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueBoldCondensed.woff2')
+      format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Condensed Black'),
+    local('HelveticaNeueBlackCondensed'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueBlackCondensed.woff2')
+      format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Bold'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Bold.woff2')
+      format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Light'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Light.woff2')
+      format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Medium'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Medium.woff2')
+      format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-MediumItalic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-MediumItalic.woff2')
+      format('woff2');
+  font-weight: 500;
+  font-style: italic;
+} */
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-LightItalic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-LightItalic.woff2')
+      format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-HeavyItalic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-HeavyItalic.woff2')
+      format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Black'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Black.woff2')
+      format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Heavy'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Heavy.woff2')
+      format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Italic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Italic.woff2')
+      format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Roman'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Roman.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-BlackItalic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-BlackItalic.woff2')
+      format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-UltraLightItalic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-UltraLightItalic.woff2')
+      format('woff2');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-BoldItalic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-BoldItalic.woff2')
+      format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-ThinItalic'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-ThinItalic.woff2')
+      format('woff2');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-UltraLight'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-UltraLight.woff2')
+      format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: local('HelveticaNeueCyr-Thin'),
+    url('/nanny-services/src/assets/fonts/HelveticaNeueCyr-Thin.woff2')
+      format('woff2');
+  font-weight: 100;
+  font-style: normal;
 }

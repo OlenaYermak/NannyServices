@@ -1,0 +1,38 @@
+.circleRewievWrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.circle {
+  width: 44px;
+  height: 44px;
+  background-color: #f03f3b33;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.initial {
+  color: var(--red);
+  font-size: 20px;
+  line-height: 1;
+}
+.raitingWrapper {
+  display: flex;
+}
+.revierRaitingWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.starIcon {
+  color: var(--yellow);
+  margin-right: 8px;
+}
+
+.textComment {
+  color: var(--gray);
+  text-align: left;
+}

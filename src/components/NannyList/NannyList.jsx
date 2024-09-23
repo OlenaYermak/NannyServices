@@ -1,13 +1,12 @@
-import nannies from "../../nannies.json";
-import NannyCard from "../NannyCard/NannyCard";
+import nannies from '../../nannies.json';
+import NannyCard from '../NannyCard/NannyCard';
+
+import css from './NannyList.module.css';
 
 export default function NannyList() {
   return (
-    <ul>
+    <ul className={css.nanniesList}>
       {nannies.map((nanny, index) => {
-        // Додаємо console.log для перевірки даних перед передачею в NannyCard
-        console.log("Дані передані в NannyCard:", nanny);
-
         return (
           <li key={index}>
             <NannyCard nanny={nanny} />

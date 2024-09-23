@@ -1,15 +1,111 @@
-.imageWrapper{
-border: 2px solid #F03F3B33;
-border-radius: 30px;
+.cardContainer {
+  background-color: #fbfbfb;
+  border-radius: 24px;
+  display: flex;
+  padding: 24px;
+}
 
+.imageWrapper {
+  border: 2px solid #f03f3b33;
+  border-radius: 30px;
+  width: 120px;
+  height: 120px;
+  margin-right: 24px;
 }
 
 .image {
-    border-radius: 15px;
-    width: 96px;
-    height: 96px;
-    object-fit: cover;
-    object-position: center;
-    margin: 12px;
-    
+  border-radius: 15px;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  object-position: center;
+  margin: 12px;
+}
+.textInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+.nameLocationPriceWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.nannyNameWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.textNanny {
+  color: var(--gray);
+}
+.nameNanny {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.locationRatingPriceWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.locationIcon {
+  color: var(--black);
+  margin-right: 4px;
+}
+
+.textLocation {
+  color: var(--black);
+}
+
+.starIcon {
+  color: var(--yellow);
+  margin-right: 4px;
+}
+
+.verticalLine {
+  width: 1px; /* Товщина лінії */
+  height: 16px; /* Висота лінії */
+  background-color: #11101c33; /* Колір лінії */
+  border: none; /* Видалити стандартний стиль межі */
+  /* transform: rotate(90deg); Поворот для створення вертикальної лінії */
+  margin: 0 16px; /* Відступи, щоб не торкатися інших елементів */
+}
+
+/* .ratingInfo {
+  color: var(--black);
+} */
+
+.priceAccent {
+  color: var(--green);
+}
+
+.heartIcon {
+  margin-left: 48px;
+}
+
+.textAboutNanny {
+  color: var(--gray);
+  text-align: left;
+}
+
+.readMoreBtn {
+  text-decoration: underline;
+  text-align: left;
+  display: block;
+
+  padding: 5px;
+  padding-left: 0;
+}
+
+.appointmentButton {
+  background-color: var(--red);
+  border-radius: 30px;
+  display: block;
+  text-align: left;
+  color: var(--white);
 }
