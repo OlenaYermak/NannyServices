@@ -1,0 +1,122 @@
+.heroSection {
+  max-width: 1376px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.heroSectionTextWrapper {
+  background-color: var(--red);
+  width: 50%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding-top: 251px;
+  padding-left: 96px;
+  text-align: left;
+}
+
+.heroSectionTitle {
+  color: var(--white);
+  max-width: 517px;
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.heroSectionText {
+  color: var(--white);
+  max-width: 517px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  text-align: left;
+  margin-bottom: 64px;
+}
+
+.heroSectionLink {
+  color: var(--white);
+  text-decoration: none;
+  border: 1px solid #fbfbfb66;
+  border-radius: 30px;
+  padding: 18px 50px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.icon {
+  margin-left: 18px;
+}
+
+.heroSectionPicture {
+  background-color: var(--red);
+  height: 736px;
+  width: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      rgba(18, 20, 23, 0.6),
+      rgba(18, 20, 23, 0.6)
+    ),
+    image-set(
+      url('/src/images/mainPic.jpg') 1x,
+      url('/src/images/mainPic@2x.jpg') 2x
+    );
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding-top: 568px;
+  padding-left: 365px;
+}
+
+.infoBox {
+  background-color: var(--white);
+  border-radius: 20px;
+  width: 284px;
+  padding: 32px;
+  display: flex;
+  gap: 16px;
+}
+
+.checkIconWrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 13px;
+  background-color: var(--red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkIcon {
+  color: var(--white);
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mainText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.19;
+  text-align: left;
+  color: #11101c80;
+}
+
+.subText {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.22;
+  text-align: left;
+  color: var(--black);
+}
