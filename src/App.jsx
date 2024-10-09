@@ -47,7 +47,9 @@ function App() {
       <button onClick={handleToggle}>{isOpen ? 'Hide' : 'Show'}</button>
       {isOpen && <p>Now you can see me!</p>}
 
-      <HeroSection />
+      {/* <HeroSection /> */}
+      {/* <NannyList /> */}
+      {/* <NanniesPage /> */}
     </>
   );
 }

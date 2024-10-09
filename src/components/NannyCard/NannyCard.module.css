@@ -68,17 +68,12 @@
 }
 
 .verticalLine {
-  width: 1px; /* Товщина лінії */
-  height: 16px; /* Висота лінії */
-  background-color: #11101c33; /* Колір лінії */
-  border: none; /* Видалити стандартний стиль межі */
-  /* transform: rotate(90deg); Поворот для створення вертикальної лінії */
-  margin: 0 16px; /* Відступи, щоб не торкатися інших елементів */
+  width: 1px;
+  height: 16px;
+  background-color: #11101c33;
+  border: none;
+  margin: 0 16px;
 }
-
-/* .ratingInfo {
-  color: var(--black);
-} */
 
 .priceAccent {
   color: var(--green);
@@ -91,6 +86,9 @@
 .textAboutNanny {
   color: var(--gray);
   text-align: left;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
 }
 
 .readMoreBtn {

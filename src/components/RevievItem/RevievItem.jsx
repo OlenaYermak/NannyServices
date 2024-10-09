@@ -14,10 +14,10 @@ export default function ReviewItem({ review }) {
           <p className={css.initial}>{initial}</p>
         </div>
         <div className={css.revierRaitingWrapper}>
-          <p>{reviewer}</p>
+          <p className={css.revierName}>{reviewer}</p>
           <div className={css.raitingWrapper}>
             <MdOutlineStarPurple500 className={css.starIcon} size={16} />
-            <p>{rating.toFixed(1)}</p>
+            <p className={css.raitingText}>{rating.toFixed(1)}</p>
           </div>
         </div>
       </div>

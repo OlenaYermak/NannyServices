@@ -1,18 +1,16 @@
-import nannies from '../../nannies.json';
-import NannyCard from '../NannyCard/NannyCard';
-
+import NannyCard from '../NannyCard/NannyCard.jsx';
 import css from './NannyList.module.css';
 
-export default function NannyList() {
+export default function NannyList({ nannies, visibleCount }) {
   return (
-    <ul className={css.nanniesList}>
-      {nannies.map((nanny, index) => {
-        return (
+    <>
+      <ul className={css.nanniesList}>
+        {nannies.slice(0, visibleCount).map((nanny, index) => (
           <li key={index}>
             <NannyCard nanny={nanny} />
           </li>
-        );
-      })}
-    </ul>
+        ))}
+      </ul>
+    </>
   );
 }

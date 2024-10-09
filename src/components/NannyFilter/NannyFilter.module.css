@@ -1,0 +1,14 @@
+.label {
+  font-family: Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+  color: var(--gray);
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.fiterContainer {
+  margin-bottom: 32px;
+}

@@ -1,4 +1,5 @@
 .revievList {
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
   gap: 25px;
