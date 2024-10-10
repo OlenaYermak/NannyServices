@@ -1,51 +1,23 @@
-/* Приховуємо лейбли */
-.hidden-label {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-
-/* Стилі для кнопок перемикання форм */
-.btnWrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.button-container button {
-  background-color: #f0f0f0;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button-container button.active {
-  background-color: #6200ee;
-  color: white;
-}
-
-.button-container button:hover {
-  background-color: #6200ee;
-  color: white;
-}
-
-/* Стилі для інпутів */
-input {
+.input {
+  height: 52px;
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin-bottom: 18px;
+  border: 1px solid #11101c1a;
+  border-radius: 12px;
 }
 
-input:focus {
+.input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--black);
+}
+
+/* input:focus {
   outline: none;
   border-color: #6200ee;
-}
+} */
 
 /* Стилі для помилок */
 p {
@@ -53,17 +25,30 @@ p {
   font-size: 12px;
 }
 
-/* Стилі для кнопки submit */
-button[type='submit'] {
-  width: 100%;
-  padding: 10px;
-  background-color: #6200ee;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.labelVisuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-button[type='submit']:hover {
-  background-color: #4500b3;
+.passwordWrapper {
+  position: relative;
+}
+
+.btnTogglePassword {
+  position: absolute;
+  left: 400px;
+  top: 50%;
+  transform: translateY(-98%);
+  background: none;
+  padding: 0;
+  line-height: 0;
 }

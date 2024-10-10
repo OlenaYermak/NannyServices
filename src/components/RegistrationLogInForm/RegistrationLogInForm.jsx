@@ -1,17 +1,31 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectUser,
+  selectError,
+  selectIsLoading,
+} from '../../redux/auth/selectors.js';
+import { registerUser, loginUser } from '../../redux/auth/operations.js';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
+import Button from '../Button/Button.jsx';
+import { toast } from 'react-hot-toast';
+import css from './RegistrationLogInForm.module.css';
 
-import styles from './RegistrationLogInForm.module.css';
-import './RegistrationLogInForm.css'; // Створюємо файл для стилів
-
-export default function RegistrationLogInForm() {
+export default function RegistrationLogInForm({
+  isRegistration,
+  onRequestClose,
+}) {
   const [showPassword, setShowPassword] = useState(false);
-  const [isRegistration, setIsRegistration] = useState(true); // Визначаємо, яку форму показувати
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector(selectUser);
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
 
-  // Валідація для реєстрації
   const registrationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     email: Yup.string().required('Email is required').email('Email is invalid'),
@@ -20,7 +34,6 @@ export default function RegistrationLogInForm() {
       .min(6, 'Password must be at least 6 characters'),
   });
 
-  // Валідація для логіна
   const loginSchema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Email is invalid'),
     password: Yup.string()
@@ -35,70 +48,86 @@ export default function RegistrationLogInForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async data => {
+    try {
+      if (isRegistration) {
+        await dispatch(
+          registerUser({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+          })
+        ).unwrap();
+
+        toast.success('Successfully registered!');
+      }
+
+      await dispatch(
+        loginUser({ email: data.email, password: data.password })
+      ).unwrap();
+
+      reset();
+      onRequestClose();
+      navigate('/nannies');
+    } catch (err) {
+      if (isRegistration) {
+        toast.error('This user already exists!');
+      } else {
+        toast.error('Login failed');
+      }
+    }
   };
 
   return (
-    <div>
-      {/* Кнопки для перемикання між формами винести в хедер*/}
-      <div className={styles.btnWrapper}>
-        <button
-          className={isRegistration ? 'active' : ''}
-          onClick={() => setIsRegistration(true)}
-        >
-          Registration
-        </button>
-        <button
-          className={!isRegistration ? 'active' : ''}
-          onClick={() => setIsRegistration(false)}
-        >
-          Log In
-        </button>
-      </div>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {isRegistration && (
-          <div>
-            <label className="hidden-label">Name</label>
-            <input
-              type="text"
-              {...register('name')}
-              placeholder="Enter your name"
-            />
-            {errors.name && <p>{errors.name.message}</p>}
-          </div>
-        )}
-
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {isRegistration && (
         <div>
-          <label className="hidden-label">Email</label>
+          <label className={css.labelVisuallyHidden}>Name</label>
           <input
-            type="email"
-            {...register('email')}
-            placeholder="Enter your email"
+            className={css.input}
+            type="text"
+            {...register('name')}
+            placeholder="Name"
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.name && <p>{errors.name.message}</p>}
         </div>
-
+      )}
+      <div>
+        <label className={css.labelVisuallyHidden}>Email</label>
+        <input
+          className={css.input}
+          type="email"
+          {...register('email')}
+          placeholder="Email"
+        />
+        {errors.email && <p>{errors.email.message}</p>}
+      </div>
+      <div className={css.passwordWrapper}>
+        <label className={css.labelVisuallyHidden}>Password</label>
         <div>
-          <label className="hidden-label">Password</label>
           <input
+            className={css.input}
             type={showPassword ? 'text' : 'password'}
             {...register('password')}
-            placeholder="Enter your password"
+            placeholder="Password"
           />
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>
-            {showPassword ? <FiEye /> : <FiEyeOff />}
+          <button
+            className={css.btnTogglePassword}
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <FiEye size={20} /> : <FiEyeOff size={20} />}
           </button>
-          {errors.password && <p>{errors.password.message}</p>}
         </div>
-
-        <button type="submit">{isRegistration ? 'Sign Up' : 'Log In'}</button>
-      </form>
-    </div>
+        {errors.password && <p>{errors.password.message}</p>}
+      </div>
+      <Button text={isRegistration ? 'Sign Up' : 'Log In'} type="submit" />
+      {isLoading && <p>Loading...</p>}
+    </form>
   );
 }

@@ -1,0 +1,7 @@
+.paragraph {
+  color: var(--gray);
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+}

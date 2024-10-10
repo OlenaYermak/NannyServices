@@ -4,6 +4,7 @@ import { FaRegHeart } from 'react-icons/fa6';
 import { useState } from 'react';
 import RewiewsList from '../RewiewsList/RewiewsList';
 import NannyDetails from '../NannyDetails/NannyDetails.jsx';
+import Paragraph from '../Paragraph/Paragraph.jsx';
 
 import css from './NannyCard.module.css';
 
@@ -78,8 +79,7 @@ export default function NannyCard({ nanny }) {
             characters={formattedCharacters}
             education={nanny.education}
           />
-
-          <p className={css.textAboutNanny}>{nanny.about}</p>
+          <Paragraph text={nanny.about} />
         </div>
 
         {!showMore && (

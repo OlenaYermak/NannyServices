@@ -1,5 +1,6 @@
 import { MdOutlineStarPurple500 } from 'react-icons/md';
 import css from './RevievItem.module.css';
+import Paragraph from '../Paragraph/Paragraph.jsx';
 
 export default function ReviewItem({ review }) {
   console.log(review);
@@ -22,7 +23,7 @@ export default function ReviewItem({ review }) {
         </div>
       </div>
 
-      <p className={css.textComment}>{comment}</p>
+      <Paragraph text={comment} />
     </>
   );
 }
