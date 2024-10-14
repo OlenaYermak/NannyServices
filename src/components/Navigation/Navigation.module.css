@@ -1,7 +1,29 @@
 .link {
-  color: blue;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+  color: var(--white);
+  transition: transform 0.2s ease;
+  position: relative;
 }
 
-.active {
-  background: yellow;
+.navList {
+  display: flex;
+  gap: 40px;
+}
+
+.active::after {
+  content: '';
+  bottom: -12px;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 20px;
+  background: #ffffff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.link:hover {
+  transform: scale(1.2);
 }

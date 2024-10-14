@@ -1,12 +1,13 @@
 import { MdOutlineStarPurple500 } from 'react-icons/md';
-import css from './RevievItem.module.css';
+
 import Paragraph from '../Paragraph/Paragraph.jsx';
 
+import css from './RevievItem.module.css';
+
 export default function ReviewItem({ review }) {
-  console.log(review);
   const { reviewer, rating, comment } = review;
 
-  const initial = reviewer.charAt(0); // Отримуємо першу літеру імені ревювера
+  const initial = reviewer.charAt(0);
 
   return (
     <>

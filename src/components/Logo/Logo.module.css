@@ -1,7 +1,12 @@
 .logo {
-  /* color: var(--white); */
+  font-family: Helvetica Neue;
+  color: var(--white);
   font-size: 24px;
   line-height: 1.16;
   letter-spacing: -0.02em;
-  color: blueviolet;
+  margin-right: 487px;
+}
+
+.loggedIn {
+  margin-right: 305px;
 }

@@ -1,3 +1,17 @@
 .nanniesPage {
   background-color: var(--back-ground);
+  padding-bottom: 100px;
+}
+
+.btnRed {
+  background-color: var(--red);
+  padding: 14px 40px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btnRed:hover {
+  background-color: var(--white);
+  color: var(--red);
 }

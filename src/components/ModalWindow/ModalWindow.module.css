@@ -11,8 +11,6 @@
   border: none;
   position: absolute;
   z-index: 1001;
-
-  /* min-height: 623px; */
 }
 
 .overlay {
@@ -51,9 +49,15 @@
   justify-content: center;
   cursor: pointer;
   box-sizing: border-box;
+  background-color: transparent;
 }
 
 .icon {
   width: 32px;
   height: 32px;
+  transition: transform 0.2s ease;
+}
+
+.closeButton:hover .icon {
+  transform: scale(1.1);
 }

@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectUser,
-  selectError,
-  selectIsLoading,
-} from '../../redux/auth/selectors.js';
+import { selectUser, selectIsLoading } from '../../redux/auth/selectors.js';
 import { registerUser, loginUser } from '../../redux/auth/operations.js';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -22,8 +18,7 @@ export default function RegistrationLogInForm({
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(selectUser);
-  const error = useSelector(selectError);
+
   const isLoading = useSelector(selectIsLoading);
 
   const registrationSchema = Yup.object().shape({
@@ -86,7 +81,7 @@ export default function RegistrationLogInForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {isRegistration && (
-        <div>
+        <div className={css.inputWrapper}>
           <label className={css.labelVisuallyHidden}>Name</label>
           <input
             className={css.input}
@@ -94,10 +89,12 @@ export default function RegistrationLogInForm({
             {...register('name')}
             placeholder="Name"
           />
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && (
+            <p className={css.textError}>{errors.name.message}</p>
+          )}
         </div>
       )}
-      <div>
+      <div className={css.inputWrapper}>
         <label className={css.labelVisuallyHidden}>Email</label>
         <input
           className={css.input}
@@ -105,7 +102,9 @@ export default function RegistrationLogInForm({
           {...register('email')}
           placeholder="Email"
         />
-        {errors.email && <p>{errors.email.message}</p>}
+        {errors.email && (
+          <p className={css.textError}>{errors.email.message}</p>
+        )}
       </div>
       <div className={css.passwordWrapper}>
         <label className={css.labelVisuallyHidden}>Password</label>
@@ -124,9 +123,15 @@ export default function RegistrationLogInForm({
             {showPassword ? <FiEye size={20} /> : <FiEyeOff size={20} />}
           </button>
         </div>
-        {errors.password && <p>{errors.password.message}</p>}
+        {errors.password && (
+          <p className={css.textError}>{errors.password.message}</p>
+        )}
       </div>
-      <Button text={isRegistration ? 'Sign Up' : 'Log In'} type="submit" />
+      <Button
+        text={isRegistration ? 'Sign Up' : 'Log In'}
+        type="submit"
+        className={css.btnRed}
+      />
       {isLoading && <p>Loading...</p>}
     </form>
   );

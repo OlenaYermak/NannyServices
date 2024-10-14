@@ -1,10 +1,15 @@
+import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
-
+import { setFilterOption } from '../../redux/nanny/nannySlice.js';
+import { selectFilterOption } from '../../redux/nanny/nannySelectors.js';
 import css from './NannyFilter.module.css';
 
-export default function NannyFilter({ filterOption, setFilterOption }) {
+export default function NannyFilter() {
+  const dispatch = useDispatch();
+  const filterOption = useSelector(selectFilterOption);
+
   const handleFilterChange = selectedOption => {
-    setFilterOption(selectedOption.value);
+    dispatch(setFilterOption(selectedOption.value));
   };
 
   const options = [
@@ -18,7 +23,7 @@ export default function NannyFilter({ filterOption, setFilterOption }) {
   ];
 
   const customStyles = {
-    control: (provided, state) => ({
+    control: provided => ({
       ...provided,
       backgroundColor: '#f03f3b',
       fontFamily: 'HelveticaNeueCyr, sans-serif',
@@ -69,18 +74,19 @@ export default function NannyFilter({ filterOption, setFilterOption }) {
   };
 
   return (
-    <div className={css.fiterContainer}>
-      <label htmlFor="filter" className={css.label}>
-        Filters
-      </label>
-      <Select
-        id="filter"
-        value={options.find(option => option.value === filterOption)}
-        onChange={handleFilterChange}
-        options={options}
-        styles={customStyles}
-        isSearchable={false}
-      />
-    </div>
+    <section className={css.section}>
+      <div className={css.fiterContainer}>
+        <label className={css.label} htmlFor="filter">
+          Filters
+        </label>
+        <Select
+          id="filter"
+          options={options}
+          onChange={handleFilterChange}
+          styles={customStyles}
+          value={options.find(option => option.value === filterOption)}
+        />
+      </div>
+    </section>
   );
 }

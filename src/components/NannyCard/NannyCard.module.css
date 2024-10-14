@@ -81,21 +81,29 @@
 
 .heartIcon {
   margin-left: 48px;
+  background-color: transparent;
 }
 
 .readMoreBtn {
   text-decoration: underline;
   text-align: left;
   display: block;
-
+  background-color: transparent;
   padding: 5px;
   padding-left: 0;
 }
 
-.appointmentButton {
+.btnRed {
   background-color: var(--red);
-  border-radius: 30px;
+  padding: 14px 28px;
   display: block;
-  text-align: left;
-  color: var(--white);
+}
+
+.btnRed:hover {
+  background-color: var(--white);
+  color: var(--red);
+}
+
+.favorite {
+  fill: var(--red);
 }

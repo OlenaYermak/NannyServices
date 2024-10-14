@@ -23,7 +23,7 @@ export default function Layout({ children }) {
   };
 
   return (
-    <div>
+    <>
       <AppBar onOpenModal={handleOpenModal} />
       {children}
       <ModalWindow
@@ -32,6 +32,6 @@ export default function Layout({ children }) {
         isRegistration={isRegistration}
       />
       <Toaster position="top-center" />
-    </div>
+    </>
   );
 }

@@ -2,9 +2,9 @@ import React from 'react';
 import Modal from 'react-modal';
 import { FiX } from 'react-icons/fi';
 import RegistrationLogInForm from '../RegistrationLogInForm/RegistrationLogInForm.jsx';
+import Paragraph from '../Paragraph/Paragraph.jsx';
 
 import css from './ModalWindow.module.css';
-import Paragraph from '../Paragraph/Paragraph.jsx';
 
 Modal.setAppElement('#root');
 

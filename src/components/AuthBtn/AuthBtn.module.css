@@ -1,0 +1,13 @@
+.btnRed {
+  background-color: var(--red);
+  padding: 14px 40px;
+}
+.listAuthBtn {
+  display: flex;
+  gap: 8px;
+}
+
+.btnRed:hover {
+  background-color: var(--white);
+  color: var(--red);
+}

@@ -8,6 +8,7 @@ import css from './HeroSection.module.css';
 export default function HeroSection() {
   return (
     <section className={css.heroSection}>
+      {' '}
       <div className={css.heroSectionTextWrapper}>
         <h1 className={css.heroSectionTitle}>
           Make Life Easier for the Family:

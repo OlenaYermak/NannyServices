@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   updateProfile,
 } from 'firebase/auth';
+// import { clearFavorites } from '../favorite/favoriteSlice.js'; // імпорт дії
 
 export const registerUser = createAsyncThunk(
   'auth/registerUser',
@@ -55,20 +56,34 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// Асинхронний thunk для логауту
-export const logoutUser = createAsyncThunk('auth/logoutUser', async () => {
-  await signOut(auth);
-});
+// // Асинхронний thunk для логауту
+export const logoutUser = createAsyncThunk(
+  'auth/logoutUser',
+  async (_, { rejectWithValue }) => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
-// Слухач для поточного стану авторизації
-export const getCurrentUser = createAsyncThunk('auth/getCurrentUser', () => {
-  return new Promise((resolve, reject) => {
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        resolve(user);
-      } else {
-        resolve(null);
-      }
+export const getCurrentUser = createAsyncThunk(
+  'auth/getCurrentUser',
+  (_, { rejectWithValue }) => {
+    return new Promise((resolve, reject) => {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          // Додаємо повернення імені користувача
+          resolve({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+          });
+        } else {
+          reject(rejectWithValue('User is not logged in'));
+        }
+      });
     });
-  });
-});
+  }
+);

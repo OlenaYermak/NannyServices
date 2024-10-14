@@ -1,5 +1,4 @@
 .label {
-  font-family: Helvetica;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
@@ -10,5 +9,12 @@
 }
 
 .fiterContainer {
+  padding-top: 64px;
   margin-bottom: 32px;
+}
+
+.section {
+  width: 1184px;
+  margin-left: auto;
+  margin-right: auto;
 }
